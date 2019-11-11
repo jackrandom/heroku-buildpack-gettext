@@ -1,3 +1,8 @@
+```console
+heroku buildpacks:set https://github.com/jackrandom/heroku-buildpack-gettext
+```
+
+
 # Heroku buildpack: GNU gettext
 
 This buildpack compile GNU gettext with gettext-tools from official gettext  
@@ -55,18 +60,6 @@ https://devcenter.heroku.com/articles/buildpack-api#profile-d-scripts).
 This will be created by this buildpack.
 
 See `profile/heroku-buildpack-gettext.sh`
-
-```zsh
-# without LD_LIBRARY_PATH
-% heroku run ldd /app/.heroku/gettext/usr/local/bin/msgfmt
-Running ldd /app/.heroku/gettext/usr/local/bin/msgfmt on ⬢ XXXXX... up, run.NNNN (XXXX)
-        linux-vdso.so.1 =>  (0x00007ffc6a6b8000)
-        libgettextsrc-0.19.8.1.so => not found
-        libgettextlib-0.19.8.1.so => not found
-        libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007fe31c615000)
-        libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007fe31c3f7000)
-        /lib64/ld-linux-x86-64.so.2 (0x00007fe31c9da000)
-```
 
 
 ## Usage
