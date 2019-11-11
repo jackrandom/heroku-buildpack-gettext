@@ -33,12 +33,12 @@ xgettext
 
 ## GNU gettext
 
-Current version is `0.19.8.1`.
+Current version is `0.20.1`.
 
 ```zsh
 % heroku run gettext --version
 Runnig gettext --version on   XXXX...up, run.NNNN (XXXX)
-gettext (GNU gettext-runtime) 0.19.8.1
+gettext (GNU gettext-runtime) 0.20.1
 Copyright (C) 1995-1997, 2000-2007 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 This is free software: you are free to change and redistribute it.
