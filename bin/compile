@@ -11,6 +11,7 @@ CACHE_DIR=$2
 GETTEXT_DIR=${BUILD_DIR}/.heroku/gettext
 GETTEXT_PREFIX=${GETTEXT_DIR}/usr/local
 GETTEXT_VERSION=0.20.1
+GETTEXT_CHECKSUM=66415634c6e8c3fa8b71362879ec7575e27da43da562c798a8a2f223e6e47f5c
 GETTEXT_ARCHIVE=gettext-${GETTEXT_VERSION}.tar.gz
 GETTEXT_LOCATION=https://ftp.gnu.org/pub/gnu/gettext/${GETTEXT_ARCHIVE}
 
@@ -46,8 +47,12 @@ else
   curl -sLO --max-time 45 --location "${GETTEXT_LOCATION}"
 fi
 
-tar zxf ${GETTEXT_ARCHIVE}
-mv gettext-${GETTEXT_VERSION} gettext
+echo "$GETTEXT_CHECKSUM $GETTEXT_ARCHIVE" | sha256sum --check
+if [ $? -eq 0 ]
+then
+    tar zxf ${GETTEXT_ARCHIVE}
+    mv gettext-${GETTEXT_VERSION} gettext
+fi
 
 cd gettext
 
